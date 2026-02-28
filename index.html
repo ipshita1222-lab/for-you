@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- More readable cursive -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      transition: background 0.8s ease;
+    }
+
+    .page {
+      display: none;
+      padding: 60px 20px;
+      min-height: 100vh;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 20px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #nextBtn, #nextBtn2 { background-color: #ff4da6; }
+    #yesBtn { background-color: #ff69b4; animation: heartbeat 1.2s infinite; } /* pink heart */
+    #noBtn { background-color: #ff3333; }
+
+    h1 {
+      margin-bottom: 30px;
+      font-weight: 700;
+      display: inline-block;
+      animation: floatUp 1.5s forwards;
+      font-size: 4em;
+    }
+
+    p {
+      font-weight: 700;
+      line-height: 1.8;
+      font-size: 22px;
+    }
+
+    /* Float up animation for headings */
+    @keyframes floatUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      60% { transform: translateY(-5px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Heartbeat animation for YES button */
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 💗 PAGE 1 -->
+<div id="page1" class="page">
+  <h1>Hi Vdtttie 💖</h1>
+  <p>
+    I know I hurt you, and I can’t stop thinking about every mistake I made. 
+    I was careless, stubborn, and selfish at times, and I am truly, deeply sorry. 
+    You didn’t deserve any of it… and yet, you stayed in my heart through it all. 
+    Every laugh we shared, every small moment… I can’t forget. 
+    I miss you more than words can say, and if I could take back even a fraction 
+    of the pain I caused, I would do it in a heartbeat. 
+    I’m not asking you to forget, just to know that my heart still belongs to you — always. 💞
+  </p>
+  <button id="nextBtn" onclick="showPage(2)">Next 💕</button>
+</div>
+
+<!-- 💜 PAGE 2 -->
+<div id="page2" class="page">
+  <h1>You Still Matter 🌸</h1>
+  <p>
+    So yes sweetsoul you matter not little but more than anything kri hai yr galtiyan pr krde yr maaf pls forgive itna kya gussa hora hai maan ja agree krti hu ki bhai hate hai tereme for me thodi nhi bht hai but usse jyda pyaar kaabhi toh tha hi na vdt just last chnce to prove myself and you wont regret it buddy. 💌
+  </p>
+  <button id="nextBtn2" onclick="showPage(3)">Next 💌</button>
+</div>
+
+<!-- 💖 PAGE 3 -->
+<div id="page3" class="page">
+  <h1>One Honest Choice 🥺💞</h1>
+  <p>
+    This is your honest choice… to see if there’s still space in your heart for us. I’m not asking to forget the past, just to consider giving us another chance. Whatever you decide, I’ll respect it completely. My heart will always care for you, no matter what.
+  </p>
+  <button id="yesBtn" onclick="showPage(4, 'yes')">YES 💖</button>
+  <button id="noBtn" onclick="showPage(4, 'no')">NO 💔</button>
+</div>
+
+<!-- 💚 / 🩶 FINAL PAGE -->
+<div id="page4" class="page">
+  <h1 id="finalTitle"></h1>
+  <p id="finalText"></p>
+</div>
+
+<script>
+  function showPage(pageNumber, choice) {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "none";
+    document.getElementById("page3").style.display = "none";
+    document.getElementById("page4").style.display = "none";
+
+    if (pageNumber === 1) {
+      document.getElementById("page1").style.display = "block";
+      document.body.style.background = "linear-gradient(to bottom right, #ffc0cb, #ffd1b3)";
+    }
+
+    if (pageNumber === 2) {
+      document.getElementById("page2").style.display = "block";
+      document.body.style.background = "linear-gradient(to bottom right, #b19cd9, #add8e6)";
+      const h = document.querySelector("#page2 h1");
+      h.style.animation = "none";
+      void h.offsetWidth;
+      h.style.animation = "floatUp 1.5s forwards";
+    }
+
+    if (pageNumber === 3) {
+      document.getElementById("page3").style.display = "block";
+      document.body.style.background = "linear-gradient(to bottom right, #ffc0cb, #ffd1b3)";
+      const h = document.querySelector("#page3 h1");
+      h.style.animation = "none";
+      void h.offsetWidth;
+      h.style.animation = "floatUp 1.5s forwards";
+    }
+
+    if (pageNumber === 4) {
+      document.getElementById("page4").style.display = "block";
+      if (choice === "yes") {
+        document.body.style.background = "#ffe6f0";
+        document.getElementById("finalTitle").innerHTML = "Hehe I Knew It 😏💖";
+        document.getElementById("finalText").innerHTML =
+          "Dude I knew you love me. These efforts won’t go down even 1%. It will stay 1000% always. I won’t give you any chance to break this beautiful thing again. Love you sweetuiiei 💖✨";
+      } else {
+        document.body.style.background = "#f2f2f2";
+        document.getElementById("finalTitle").innerHTML = "I Understand 🤍";
+        document.getElementById("finalText").innerHTML =
+          "Even if it’s no… I’ll still care for you. I won’t force anything. Maybe I’ll try again someday… but not now. I don’t want you to feel pressured or upset. Thank you for being honest. 🌷";
+      }
+    }
+  }
+
+  showPage(1);
+</script>
+
+</body>
+</html>
